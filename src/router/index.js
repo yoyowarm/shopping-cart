@@ -15,7 +15,7 @@ export default new Router({
         {
             path: '/cart',
             name: 'cart',
-            component: carts
+            components: { cart: carts }
         },
         {
             path: '/:serch',
@@ -25,7 +25,7 @@ export default new Router({
         {
             path: '/:id',
             name: 'item',
-            component: item
+            components: { single: item }
         }
     ]
 })

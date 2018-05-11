@@ -15,13 +15,21 @@
     <!-- <p>{{ count }}</p> -->
     <!-- <button @click="increment">+</button>
     <button @click="decrement">-</button> -->
-    <router-view ></router-view>
+    <div class="container-fluid">
+      <div class="row">
+      <router-view v-for="(item,index) in items" :item="item" @click.native="findIndex({index:index})"></router-view>
+      <router-view name="single"></router-view>
+      <router-view name="cart"></router-view>
+      </div>
+    </div>
+    <!-- <product></product> -->
   </div>
 </template>
 
 <script>
 import axios from 'axios'
-import { mapState,mapGetters ,mapActions} from 'vuex'
+import { mapState,mapGetters ,mapActions,mapMutations} from 'vuex'
+import product from '@/components/carts.vue'
 export default {
   name: 'App',
 
@@ -32,9 +40,12 @@ return {
   posts: []
 }
   },
+  components: {
+    product
+  },
   computed:{
     ...mapState({menuList: state => state.menu}),
-    ...mapGetters({'CartsCount' : 'getCartsCount'})
+    ...mapGetters({'CartsCount' : 'getCartsCount','items': 'getProducts',})
     
     
   },
@@ -51,7 +62,11 @@ return {
   }),
   ...mapActions({
      'index' : 'initial'
-  })
+  }),
+  ...mapMutations({
+      'findIndex': 'setSingleCount',
+  
+    }),
   },
   created() {
     this.$store.dispatch('initial')
@@ -63,6 +78,7 @@ return {
 </script>
 
 <style lang="scss">
+body{ background: #F8F8FA}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -94,7 +110,7 @@ return {
     width: 8px;
     height: 8px;
     border-radius:50%;
-    background: red;
+    background: #00c8ff;
     position: absolute;
     z-index: 1;
     top: 22px;

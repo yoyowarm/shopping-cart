@@ -17,7 +17,7 @@ import { mapState,mapGetters } from 'vuex'
     }
   },
   computed: {
-    ...mapGetters({items: 'getProducts',singleCount: 'getItemsCount'})
+    ...mapGetters({'items': 'getProducts','singleCount': 'getItemsCount'})
   }
 }
 </script>

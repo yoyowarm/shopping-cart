@@ -18,7 +18,7 @@ const getters = {
     },
     getItemsCount(state) {
         console.log(state.itemsCount)
-        console.log(state.products[state.itemsCount])
+            // console.log(state.products[state.itemsCount])
         return state.itemsCount
     },
     getProductsCount(state) {
@@ -42,27 +42,59 @@ const getters = {
 }
 
 const mutations = {
-    increment(state) {
-        state.productsCount++;
-        // console.log(state.productsCount)
+    increment(state, payload) {
+        state.carts[payload].num++
+            // state.products[state.itemsCount].oder++;
+
+            // 
+            // if (payload != undefined) {
+            //     state.carts[payload].oder++;
+            //     console.log(payload)
+            //         // console.log(state.carts[payload].oder)
+            // }
+
+
+            // console.log(state.products[state.itemsCount].oder)
     },
-    decrement(state) {
-        state.productsCount--;
-        // console.log(state.productsCount)
+    decrement(state, payload) {
+        if (state.carts[payload].num <= 1) {
+            return state.carts[payload].num === 1
+        }
+        state.carts[payload].num--
+            // if (payload === undefined) {
+            //     state.products[state.itemsCount].oder--;
+            // }
+            // // 
+            // if (payload != undefined) {
+            //     state.carts[payload].oder--;
+            //     console.log(payload)
+            //         // console.log(state.carts[payload].oder)
+            // }
+
+            // console.log(state.products[state.itemsCount].oder)
     },
     setProducts(state, payload) {
+        // payload.prods.map(item => {
+        //         Vue.set(item, 'oder', 1)
+        //             // console.log(item)
+        //     })
+        // Vue.set(payload.prods, 'num', 0)
         state.products = payload.prods
+            // console.log(state.products)
     },
     setSingleCount(state, payload) {
-        console.log(payload)
+        // console.log(payload)
         state.itemsCount = payload.index
     },
     addCart(state, payload) {
         if (payload.num > 0) {
             state.carts.push(payload)
         }
-        console.log(payload)
         console.log(state.carts)
+    },
+    removeCart(state, payload) {
+        console.log(payload)
+        state.carts.splice(payload, 1)
     }
 }
 export default new Vuex.Store({

@@ -11,7 +11,6 @@ export default {
         axios.get(`${cors}http://ecshweb.pchome.com.tw/search/v3.3/all/results?${query}&sort=rnk/dc`)
             .then(response => {
                 commit('setProducts', response.data)
-
             })
     },
     changeItme({ commit, state }, payload) {
