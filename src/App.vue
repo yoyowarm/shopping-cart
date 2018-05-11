@@ -15,7 +15,7 @@
     <!-- <p>{{ count }}</p> -->
     <!-- <button @click="increment">+</button>
     <button @click="decrement">-</button> -->
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
       <router-view v-for="(item,index) in items" :item="item" @click.native="findIndex({index:index})"></router-view>
       <router-view name="single"></router-view>

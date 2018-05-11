@@ -77,7 +77,7 @@ export default {
     width: 100%;
   }
   .item-name {
-  display: -webkit-box;
+  // display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
