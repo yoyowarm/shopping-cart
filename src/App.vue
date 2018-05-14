@@ -16,10 +16,12 @@
     <!-- <button @click="increment">+</button>
     <button @click="decrement">-</button> -->
     <div class="container">
+      
       <div class="row">
-      <router-view v-for="(item,index) in items" :item="item" @click.native="findIndex({index:index})"></router-view>
-      <router-view name="single"></router-view>
-      <router-view name="cart"></router-view>
+      <router-view v-for="(item,index) in items" :item="item" @click.native="findIndex({index:index})" ></router-view>
+      <transition name="fade"><router-view name="single"></router-view></transition>
+      <transition name="fade"><router-view name="cart"></router-view></transition>
+        
       </div>
     </div>
     <!-- <product></product> -->
@@ -79,6 +81,14 @@ return {
 
 <style lang="scss">
 body{ background: #F8F8FA}
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 0.7s ease-in-out
+}
+.fade-enter,
+.fade-leave {
+    opacity: 0
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

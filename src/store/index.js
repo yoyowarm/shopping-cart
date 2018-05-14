@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import loading from 'vuex-loading-plug';
 import actions from './actions'
 
 Vue.use(Vuex)

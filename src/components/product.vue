@@ -1,4 +1,5 @@
 <template  >
+<transition name="fade" tag="div" class="row">
   <div class="product col-12 col-sm-6  col-md-4 col-lg-3"  >
     <div class="product-box">
         <router-link tag="div" :to="{name:'item',params:{id:item.Id}}" >
@@ -13,6 +14,7 @@
         <button class="add-to-cart" @click="addCart(item)"><span>加入購物車</span></button>
       </div>
   </div>
+  </transition>
 </template>
 
 <script>
@@ -59,6 +61,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
+.fade-enter-active,
+.fade-leave-active {
+    transition: all 0.7s ease-in-out
+}
+.fade-enter,
+.fade-leave {
+    opacity: 0
+}
 .product {
   margin: 15px auto;
   .product-box {
