@@ -18,7 +18,7 @@
     "@fortawesome/fontawesome-free-regular": "^5.0.13",
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "axios": "^0.18.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "popper.js": "^1.14.3",
     "reset-css": "^3.0.0",
     "vue": "^2.5.2",
